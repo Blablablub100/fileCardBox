@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/fileCardBox.iml" filepath="$PROJECT_DIR$/.idea/modules/fileCardBox.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/fileCardBox_main.iml" filepath="$PROJECT_DIR$/.idea/modules/fileCardBox_main.iml" group="fileCardBox" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/fileCardBox_test.iml" filepath="$PROJECT_DIR$/.idea/modules/fileCardBox_test.iml" group="fileCardBox" />
+    </modules>
+  </component>
+</project>
