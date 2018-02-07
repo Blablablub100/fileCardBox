@@ -1,16 +1,28 @@
 package com.blablablub100.fileCardBox;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class FileCardBox {
+public class FileCardBox implements Serializable {
     private List<FileCard> fileCards = new ArrayList();
     private Random rng;
     private int lastCard = -1;
+    private ReadWriter rw;
 
     public FileCardBox() {
-        // READ IN fileCards XML
+        rng = new Random();
+        rw = new ReadWriter(this);
+        FileCardBox readCardBox = rw.readCardBoxData();
+        if (readCardBox == null) {
+            System.out.println("No save found - creating new cardbox");
+            fileCards.add(new FileCard(1, 5, "test", "test"));
+        } else {
+            System.out.println("Initializing savefile");
+            this.fileCards = readCardBox.fileCards;
+            this.lastCard = readCardBox.lastCard;
+        }
     }
 
 
@@ -47,6 +59,7 @@ public class FileCardBox {
     }
 
     public FileCard pickRandom() {
+        int size = fileCards.size();
         int index = rng.nextInt(fileCards.size());
         return fileCards.get(index);
     }
@@ -58,7 +71,7 @@ public class FileCardBox {
                 trayIndexes.add(i);
             }
         }
-        int index = rng.nextInt(trayIndexes.size());
+        int index = rng.nextInt(trayIndexes.size()-1);
         return fileCards.get(trayIndexes.get(index));
     }
 
@@ -66,5 +79,8 @@ public class FileCardBox {
         return fileCards.get(index);
     }
 
-
+    public void saveCardBox() {
+        if (rw.writeCardBoxData()) System.out.println("Save successfull");
+        else System.out.println("Save unsuccessfull");
+    }
 }

@@ -4,7 +4,7 @@ public class MainClass {
 
 
     public static void main(String[] args) {
-        FileCardBox cardBox = new FileCardBox(); // TODO READ IN
+        FileCardBox cardBox = new FileCardBox();
         UI ui = new UI(cardBox);
         ui.printUILoop();
     }

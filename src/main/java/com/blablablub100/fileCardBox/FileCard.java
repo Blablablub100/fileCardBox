@@ -1,6 +1,8 @@
 package com.blablablub100.fileCardBox;
 
-public class FileCard {
+import java.io.Serializable;
+
+public class FileCard implements Serializable {
 
     private byte complexity;
     private byte tray;
@@ -8,9 +10,9 @@ public class FileCard {
     private String back;
     private int counter;
 
-    public FileCard(byte complexity, byte tray, String front, String back) {
-        this.complexity = complexity;
-        this.tray = tray;
+    public FileCard(int complexity, int tray, String front, String back) {
+        this.complexity = (byte) complexity;
+        this.tray = (byte) tray;
         this.front = front;
         this.back = back;
         counter = 0;
